@@ -11,6 +11,10 @@ public class MapManager : MonoBehaviour
     public GameObject oneWayBlockPrefab;
     public GameObject blockPrefab;
 
+    Vector3 cameraSpeed = new Vector3(0, 1f, 0);
+    public GameObject mainCamera;
+    public GameObject backgroundImage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +52,9 @@ public class MapManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        var pos = mainCamera.transform.localPosition;
+        mainCamera.transform.localPosition = pos + cameraSpeed * Time.deltaTime;
+        pos = backgroundImage.transform.localPosition;
+        backgroundImage.transform.localPosition = pos + cameraSpeed * Time.deltaTime;
     }
 }
