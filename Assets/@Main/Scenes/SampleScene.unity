@@ -419,6 +419,8 @@ MonoBehaviour:
     type: 3}
   blockPrefab: {fileID: 3261891956529261046, guid: d43e88b9f398fcf4ebbe55aab7df5b7b,
     type: 3}
+  goalPrefab: {fileID: 6264611277531043500, guid: a3b0e68bfd9006040b448cd19b40e188,
+    type: 3}
   mainCamera: {fileID: 519420028}
   backgroundImage: {fileID: 1885154371}
 --- !u!1 &1695438984
