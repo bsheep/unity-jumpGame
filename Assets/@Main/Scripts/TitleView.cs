@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class TitleView : MonoBehaviour
 {
@@ -22,12 +23,12 @@ public class TitleView : MonoBehaviour
     public void setCursorToStart()
     {
         cursorPos.y = -200;
-        cursor.transform.localPosition = cursorPos;
+        cursor.transform.DOLocalMove(cursorPos, 0.5f).SetEase(Ease.OutQuart);
     }
 
     public void setCursorToTutorial()
     {
         cursorPos.y = -260;
-        cursor.transform.localPosition = cursorPos;
+        cursor.transform.DOLocalMove(cursorPos, 0.5f).SetEase(Ease.OutQuart);
     }
 }
