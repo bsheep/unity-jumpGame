@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2531957257334619368
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2531957257334619375}
+  - component: {fileID: 2531957257334619374}
+  m_Layer: 0
+  m_Name: MapManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2531957257334619375
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2531957257334619368}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2531957257334619374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2531957257334619368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77b8a5ad867626649887c7e730613b3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageData: {fileID: 4900000, guid: a4aae6c6550b5db4bbdb370d8b97dadc, type: 3}
+  playerPrefab: {fileID: 1981843245184547536, guid: 68d0602f318d9e34482aefd8145569f5,
+    type: 3}
+  applePrefab: {fileID: 273941442103828355, guid: 109392b4a3661a046901d0d36aea44e0,
+    type: 3}
+  oneWayBlockPrefab: {fileID: 8548836694064877170, guid: a53c48ca0463eb14388dbd978f2315b0,
+    type: 3}
+  blockPrefab: {fileID: 3261891956529261046, guid: d43e88b9f398fcf4ebbe55aab7df5b7b,
+    type: 3}
+  goalPrefab: {fileID: 6264611277531043500, guid: a3b0e68bfd9006040b448cd19b40e188,
+    type: 3}
+  mainCamera: {fileID: 0}
+  backgroundImage: {fileID: 0}
