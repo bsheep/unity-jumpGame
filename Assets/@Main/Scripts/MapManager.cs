@@ -20,6 +20,7 @@ public class MapManager : MonoBehaviour
 
     bool isGoal;
     float endPosY;
+    bool isGameOver;
 
     // Start is called before the first frame update
     void Start()
@@ -71,7 +72,6 @@ public class MapManager : MonoBehaviour
                 endPosY = mainCamera.transform.localPosition.y;
                 var playerPosY = player.transform.localPosition.y;
                 endPosY += playerPosY - endPosY + 10;
-                Debug.Log(endPosY);
             }
             isGoal = true;
             // 終了位置まで移動
@@ -85,6 +85,10 @@ public class MapManager : MonoBehaviour
             endPos.y = endPosY;
             backgroundImage.transform.localPosition = Vector3.Lerp(pos, endPos, 0.01f);
         }
+        else if (isGameOver)
+        {
+
+        }
         else
         {
             // カメラと背景を動かす
@@ -92,6 +96,15 @@ public class MapManager : MonoBehaviour
             mainCamera.transform.localPosition = pos + cameraSpeed * Time.deltaTime;
             pos = backgroundImage.transform.localPosition;
             backgroundImage.transform.localPosition = pos + cameraSpeed * Time.deltaTime;
+
+            // ゲームオーバー処理
+            var cameraY = mainCamera.transform.localPosition.y;
+            var playerY = player.transform.localPosition.y;
+            if (cameraY - playerY > 12)
+            {
+                Destroy(player.gameObject);
+                isGameOver = true;
+            }
         }
     }
 }
