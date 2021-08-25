@@ -56,3 +56,4 @@ MonoBehaviour:
     type: 3}
   mainCamera: {fileID: 0}
   backgroundImage: {fileID: 0}
+  clearClip: {fileID: 8300000, guid: 5b74437a02b590146a64d1469c99f68a, type: 3}

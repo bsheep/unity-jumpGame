@@ -22,6 +22,8 @@ public class MapManager : MonoBehaviour
     float endPosY;
     bool isGameOver;
 
+    public AudioClip clearClip;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -74,6 +76,11 @@ public class MapManager : MonoBehaviour
                 endPosY = mainCamera.transform.localPosition.y;
                 var playerPosY = player.transform.localPosition.y;
                 endPosY += playerPosY - endPosY + 10;
+
+                // BGMを止めてジングル鳴らす
+                var audioSource = FindObjectOfType<AudioSource>();
+                audioSource.Stop();
+                audioSource.PlayOneShot(clearClip);
             }
             isGoal = true;
             // 終了位置まで移動
