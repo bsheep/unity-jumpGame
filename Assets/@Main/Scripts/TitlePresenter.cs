@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TitlePresenter : MonoBehaviour
 {
@@ -28,6 +29,17 @@ public class TitlePresenter : MonoBehaviour
             else
             {
                 view.setCursorToTutorial();
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (isCursorToStart)
+            {
+                SceneManager.LoadScene("Stage01");
+            }
+            else
+            {
+                // TODO: show tutorial
             }
         }
     }
