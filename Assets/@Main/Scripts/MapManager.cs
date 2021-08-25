@@ -43,7 +43,9 @@ public class MapManager : MonoBehaviour
                 }
                 else if (chara == '2')
                 {
-                    Instantiate(oneWayBlockPrefab, pos, Quaternion.identity);
+                    var obj = Instantiate(oneWayBlockPrefab, pos, Quaternion.identity);
+                    var block = obj.GetComponent<Block>();
+                    block.setCamera(mainCamera);
                 }
                 else if (chara == '3')
                 {

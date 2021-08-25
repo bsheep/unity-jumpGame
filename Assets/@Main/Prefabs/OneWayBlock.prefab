@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8548836694064877175}
   - component: {fileID: 8548836694064877172}
   - component: {fileID: 8548836694064877173}
+  - component: {fileID: 6593315387055989572}
   m_Layer: 8
   m_Name: OneWayBlock
   m_TagString: Untagged
@@ -128,3 +129,15 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!114 &6593315387055989572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8548836694064877170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67a16aab5f2dd0e48a891f1ac1f70881, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
