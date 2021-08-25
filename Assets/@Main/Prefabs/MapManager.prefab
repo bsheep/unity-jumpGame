@@ -57,3 +57,5 @@ MonoBehaviour:
   mainCamera: {fileID: 0}
   backgroundImage: {fileID: 0}
   clearClip: {fileID: 8300000, guid: 5b74437a02b590146a64d1469c99f68a, type: 3}
+  fallClip: {fileID: 8300000, guid: 4721e30f44087894990f0a4c98c1e7fc, type: 3}
+  hitClip: {fileID: 8300000, guid: 007447c16fe798847968e9e23530a1e8, type: 3}

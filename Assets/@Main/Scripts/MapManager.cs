@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class MapManager : MonoBehaviour
 {
@@ -21,8 +23,11 @@ public class MapManager : MonoBehaviour
     bool isGoal;
     float endPosY;
     bool isGameOver;
+    bool canRetry;
 
     public AudioClip clearClip;
+    public AudioClip fallClip;
+    public AudioClip hitClip;
 
     // Start is called before the first frame update
     void Start()
@@ -96,7 +101,13 @@ public class MapManager : MonoBehaviour
         }
         else if (isGameOver)
         {
-
+            if(canRetry)
+            {
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    SceneManager.LoadScene("Title");
+                }
+            }
         }
         else
         {
@@ -113,7 +124,21 @@ public class MapManager : MonoBehaviour
             {
                 Destroy(player.gameObject);
                 isGameOver = true;
+                var audioSource = FindObjectOfType<AudioSource>();
+                audioSource.Stop();
+                audioSource.PlayOneShot(fallClip);
+                Invoke("HitEffect", 2f);
             }
         }
+    }
+
+    void HitEffect()
+    {
+        var audioSource = FindObjectOfType<AudioSource>();
+        audioSource.PlayOneShot(hitClip);
+        canRetry = true;
+
+        var shaker = mainCamera.GetComponent<CameraShaker>();
+        shaker.Shake();
     }
 }
