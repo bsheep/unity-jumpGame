@@ -4,21 +4,16 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-public class MapManager : MonoBehaviour
+public class StagePresenter: MonoBehaviour
 {
     public TextAsset stageData;
 
-    public GameObject playerPrefab;
-    public GameObject applePrefab;
-    public GameObject oneWayBlockPrefab;
-    public GameObject blockPrefab;
-    public GameObject goalPrefab;
 
     Vector3 cameraSpeed = new Vector3(0, 1f, 0);
     public GameObject mainCamera;
     public GameObject backgroundImage;
 
-    Player player;
+    public StageView view;
 
     bool isGoal;
     float endPosY;
@@ -43,29 +38,7 @@ public class MapManager : MonoBehaviour
             {
                 var pos = new Vector3(j - 16 + 0.5f, lines.Length - i - 14, 0);
                 var chara = line[j];
-                if (chara  == '1')
-                {
-                    var obj = Instantiate(playerPrefab, pos, Quaternion.identity);
-                    player = obj.GetComponent<Player>();
-                }
-                else if (chara == '2')
-                {
-                    var obj = Instantiate(oneWayBlockPrefab, pos, Quaternion.identity);
-                    var block = obj.GetComponent<Block>();
-                    block.setCamera(mainCamera);
-                }
-                else if (chara == '3')
-                {
-                    Instantiate(blockPrefab, pos, Quaternion.identity);
-                }
-                else if (chara == '5')
-                {
-                    Instantiate(applePrefab, pos, Quaternion.identity);
-                }
-                else if (chara == '6')
-                {
-                    Instantiate(goalPrefab, pos, Quaternion.identity);
-                }
+                view.SetItem(chara, pos);
             }
         }
     }
@@ -73,13 +46,13 @@ public class MapManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player.isGoal)
+        if (view.player.isGoal)
         {
             if (!isGoal)
             {
                 // 終了の初期処理
                 endPosY = mainCamera.transform.localPosition.y;
-                var playerPosY = player.transform.localPosition.y;
+                var playerPosY = view.player.transform.localPosition.y;
                 endPosY += playerPosY - endPosY + 10;
 
                 // BGMを止めてジングル鳴らす
@@ -119,10 +92,10 @@ public class MapManager : MonoBehaviour
 
             // ゲームオーバー処理
             var cameraY = mainCamera.transform.localPosition.y;
-            var playerY = player.transform.localPosition.y;
+            var playerY = view.player.transform.localPosition.y;
             if (cameraY - playerY > 12)
             {
-                Destroy(player.gameObject);
+                Destroy(view.player.gameObject);
                 isGameOver = true;
                 var audioSource = FindObjectOfType<AudioSource>();
                 audioSource.Stop();
