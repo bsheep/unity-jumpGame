@@ -5,6 +5,7 @@ using UnityEngine;
 public class Fruits : MonoBehaviour
 {
     public GameObject m_collectedPrefab;
+    public AudioClip collectedClip;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -20,6 +21,9 @@ public class Fruits : MonoBehaviour
             var info = animator.GetCurrentAnimatorStateInfo(0);
             var time = info.length;
             Destroy(collected, time);
+
+            var audioSource = FindObjectOfType<AudioSource>();
+            audioSource.PlayOneShot(collectedClip);
 
             Destroy(gameObject);
         }

@@ -296,3 +296,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17c8b4163c6396243927a3b9747ca2ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGoal: 0
+  jumpClip: {fileID: 8300000, guid: b8023bca56c05ea4f8957cafc97c95a8, type: 3}
