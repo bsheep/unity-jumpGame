@@ -18,6 +18,8 @@ public class StageView : MonoBehaviour
     public Player player;
     Vector3 cameraSpeed = new Vector3(0, 1f, 0);
 
+    public System.Action<int> OnItemCollected;
+
     public void SetScore(int score)
     {
         scoreText.text = score.ToString();
@@ -48,7 +50,9 @@ public class StageView : MonoBehaviour
         }
         else if (chara == '5')
         {
-            Instantiate(applePrefab, pos, Quaternion.identity);
+            var obj = Instantiate(applePrefab, pos, Quaternion.identity);
+            var fruit = obj.GetComponent<Fruits>();
+            fruit.OnItemCollected = OnItemCollected;
         }
         else if (chara == '6')
         {

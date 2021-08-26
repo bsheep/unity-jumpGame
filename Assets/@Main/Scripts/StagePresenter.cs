@@ -1,14 +1,14 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UniRx;
 
 public class StagePresenter: MonoBehaviour
 {
     public TextAsset stageData;
 
-
+    StageModel model;
     public StageView view;
 
     bool isGoal;
@@ -23,6 +23,11 @@ public class StagePresenter: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        model = new StageModel();
+        view.OnItemCollected = model.ScoreCount;
+        model.scoreProperty.Subscribe(view.SetScore).AddTo(this.gameObject);
+            
+
         var text = stageData.text;
         var lines = text.Split(char.Parse("\n"));
         

@@ -7,6 +7,10 @@ public class Fruits : MonoBehaviour
     public GameObject m_collectedPrefab;
     public AudioClip collectedClip;
 
+    public System.Action<int> OnItemCollected;
+
+    public int scorePlus = 100;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.name.Contains("Player"))
@@ -24,6 +28,8 @@ public class Fruits : MonoBehaviour
 
             var audioSource = FindObjectOfType<AudioSource>();
             audioSource.PlayOneShot(collectedClip);
+
+            OnItemCollected(scorePlus);
 
             Destroy(gameObject);
         }
