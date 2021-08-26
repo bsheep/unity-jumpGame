@@ -9,10 +9,6 @@ public class StagePresenter: MonoBehaviour
     public TextAsset stageData;
 
 
-    Vector3 cameraSpeed = new Vector3(0, 1f, 0);
-    public GameObject mainCamera;
-    public GameObject backgroundImage;
-
     public StageView view;
 
     bool isGoal;
@@ -51,7 +47,7 @@ public class StagePresenter: MonoBehaviour
             if (!isGoal)
             {
                 // 終了の初期処理
-                endPosY = mainCamera.transform.localPosition.y;
+                endPosY = view.mainCamera.transform.localPosition.y;
                 var playerPosY = view.player.transform.localPosition.y;
                 endPosY += playerPosY - endPosY + 10;
 
@@ -62,15 +58,10 @@ public class StagePresenter: MonoBehaviour
             }
             isGoal = true;
             // 終了位置まで移動
-            var pos = mainCamera.transform.localPosition;
+            var pos = view.mainCamera.transform.localPosition;
             var endPos = pos;
             endPos.y = endPosY;
-            mainCamera.transform.localPosition = Vector3.Lerp(pos, endPos, 0.01f);
-            
-            pos = backgroundImage.transform.localPosition;
-            endPos = pos;
-            endPos.y = endPosY;
-            backgroundImage.transform.localPosition = Vector3.Lerp(pos, endPos, 0.01f);
+            view.mainCamera.transform.localPosition = Vector3.Lerp(pos, endPos, 0.01f);
         }
         else if (isGameOver)
         {
@@ -85,13 +76,10 @@ public class StagePresenter: MonoBehaviour
         else
         {
             // カメラと背景を動かす
-            var pos = mainCamera.transform.localPosition;
-            mainCamera.transform.localPosition = pos + cameraSpeed * Time.deltaTime;
-            pos = backgroundImage.transform.localPosition;
-            backgroundImage.transform.localPosition = pos + cameraSpeed * Time.deltaTime;
+            view.MoveCamera();
 
             // ゲームオーバー処理
-            var cameraY = mainCamera.transform.localPosition.y;
+            var cameraY = view.mainCamera.transform.localPosition.y;
             var playerY = view.player.transform.localPosition.y;
             if (cameraY - playerY > 12)
             {
@@ -111,7 +99,7 @@ public class StagePresenter: MonoBehaviour
         audioSource.PlayOneShot(hitClip);
         canRetry = true;
 
-        var shaker = mainCamera.GetComponent<CameraShaker>();
+        var shaker = view.mainCamera.GetComponent<CameraShaker>();
         shaker.Shake();
     }
 }

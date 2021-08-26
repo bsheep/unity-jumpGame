@@ -16,6 +16,7 @@ public class StageView : MonoBehaviour
     public GameObject goalPrefab;
 
     public Player player;
+    Vector3 cameraSpeed = new Vector3(0, 1f, 0);
 
     public void SetScore(int score)
     {
@@ -53,5 +54,11 @@ public class StageView : MonoBehaviour
         {
             Instantiate(goalPrefab, pos, Quaternion.identity);
         }
+    }
+
+    public void MoveCamera()
+    {
+        var pos = mainCamera.transform.localPosition;
+        mainCamera.transform.localPosition = pos + cameraSpeed * Time.deltaTime;
     }
 }
