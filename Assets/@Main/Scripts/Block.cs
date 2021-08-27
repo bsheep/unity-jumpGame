@@ -17,7 +17,7 @@ public class Block : MonoBehaviour
     {
         var blockPosY = this.transform.localPosition.y;
         var cameraPosY = mainCamera.transform.localPosition.y;
-        if (blockPosY - cameraPosY < 12)
+        if (blockPosY - cameraPosY < 14)
         {
             transform.localScale = Vector3.one;
         }
