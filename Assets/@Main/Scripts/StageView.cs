@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class StageView : MonoBehaviour
 {
-    public Text scoreText;
+    public TextMeshProUGUI scoreText;
 
     public GameObject mainCamera;
 
