@@ -384,6 +384,8 @@ MonoBehaviour:
     type: 3}
   applePrefab: {fileID: 273941442103828355, guid: 109392b4a3661a046901d0d36aea44e0,
     type: 3}
+  cherriesPrefab: {fileID: 450279812211010440, guid: 87ffb2be582143c458efac2692a7c86e,
+    type: 3}
   oneWayBlockPrefab: {fileID: 8548836694064877170, guid: a53c48ca0463eb14388dbd978f2315b0,
     type: 3}
   blockPrefab: {fileID: 3261891956529261046, guid: d43e88b9f398fcf4ebbe55aab7df5b7b,

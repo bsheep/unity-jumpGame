@@ -12,6 +12,7 @@ public class StageView : MonoBehaviour
 
     public GameObject playerPrefab;
     public GameObject applePrefab;
+    public GameObject cherriesPrefab;
     public GameObject oneWayBlockPrefab;
     public GameObject blockPrefab;
     public GameObject goalPrefab;
@@ -56,6 +57,12 @@ public class StageView : MonoBehaviour
             fruit.OnItemCollected = OnItemCollected;
         }
         else if (itemId == '6')
+        {
+            var obj = Instantiate(cherriesPrefab, pos, Quaternion.identity);
+            var fruit = obj.GetComponent<Fruits>();
+            fruit.OnItemCollected = OnItemCollected;
+        }
+        else if (itemId == '8')
         {
             Instantiate(goalPrefab, pos, Quaternion.identity);
         }
