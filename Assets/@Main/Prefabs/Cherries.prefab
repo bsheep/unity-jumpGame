@@ -134,4 +134,4 @@ MonoBehaviour:
   m_collectedPrefab: {fileID: 6164426238177444796, guid: 45d60c67840c3e14f832ae0910a0578a,
     type: 3}
   collectedClip: {fileID: 8300000, guid: c57124bb911b7a24387977c38390695a, type: 3}
-  scorePlus: 300
+  scorePlus: 1000
