@@ -186,8 +186,8 @@ MonoBehaviour:
   oneWayPlatformsAreWalls: 1
   movingPlatformLayerMask:
     serializedVersion: 2
-    m_Bits: 0
-  additionalRaycastsPerSide: 0
+    m_Bits: 512
+  additionalRaycastsPerSide: 3
   groundSpeed: 8
   timeToGroundSpeed: 1
   groundStopDistance: 0

@@ -16,6 +16,8 @@ public class StageView : MonoBehaviour
     public GameObject oneWayBlockPrefab;
     public GameObject blockPrefab;
     public GameObject goalPrefab;
+    public GameObject movingLRPrefab;
+    public GameObject movingUDPrefab;
 
     public Player player;
     Vector3 cameraSpeed = new Vector3(0, 1f, 0);
@@ -50,19 +52,31 @@ public class StageView : MonoBehaviour
         {
             Instantiate(blockPrefab, pos, Quaternion.identity);
         }
+        else if (itemId == '4')
+        {
+            var obj = Instantiate(movingLRPrefab, pos, Quaternion.identity);
+            var block = obj.GetComponent<Block>();
+            block.setCamera(mainCamera);
+        }
         else if (itemId == '5')
+        {
+            var obj = Instantiate(movingUDPrefab, pos, Quaternion.identity);
+            var block = obj.GetComponent<Block>();
+            block.setCamera(mainCamera);
+        }
+        else if (itemId == '7')
         {
             var obj = Instantiate(applePrefab, pos, Quaternion.identity);
             var fruit = obj.GetComponent<Fruits>();
             fruit.OnItemCollected = OnItemCollected;
         }
-        else if (itemId == '6')
+        else if (itemId == '8')
         {
             var obj = Instantiate(cherriesPrefab, pos, Quaternion.identity);
             var fruit = obj.GetComponent<Fruits>();
             fruit.OnItemCollected = OnItemCollected;
         }
-        else if (itemId == '8')
+        else if (itemId == '9')
         {
             Instantiate(goalPrefab, pos, Quaternion.identity);
         }

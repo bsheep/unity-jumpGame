@@ -392,6 +392,10 @@ MonoBehaviour:
     type: 3}
   goalPrefab: {fileID: 6264611277531043500, guid: a3b0e68bfd9006040b448cd19b40e188,
     type: 3}
+  movingLRPrefab: {fileID: 8131048371679900136, guid: 249a3df5fce790446a944709d53f2495,
+    type: 3}
+  movingUDPrefab: {fileID: 1917749011266614662, guid: cb18c4bd3db070144bbb9571a7de4d82,
+    type: 3}
   player: {fileID: 0}
 --- !u!114 &999659483
 MonoBehaviour:
