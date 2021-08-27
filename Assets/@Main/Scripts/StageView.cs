@@ -29,33 +29,33 @@ public class StageView : MonoBehaviour
     /// <summary>
     /// ステージ上のアイテムを生成する
     /// </summary>
-    /// <param name="chara"></param>
+    /// <param name="itemId"></param>
     /// <param name="pos"></param>
-    public void SetItem(char chara, Vector3 pos)
+    public void SetItem(char itemId, Vector3 pos)
     {
 
-        if (chara == '1')
+        if (itemId == '1')
         {
             var obj = Instantiate(playerPrefab, pos, Quaternion.identity);
             player = obj.GetComponent<Player>();
         }
-        else if (chara == '2')
+        else if (itemId == '2')
         {
             var obj = Instantiate(oneWayBlockPrefab, pos, Quaternion.identity);
             var block = obj.GetComponent<Block>();
             block.setCamera(mainCamera);
         }
-        else if (chara == '3')
+        else if (itemId == '3')
         {
             Instantiate(blockPrefab, pos, Quaternion.identity);
         }
-        else if (chara == '5')
+        else if (itemId == '5')
         {
             var obj = Instantiate(applePrefab, pos, Quaternion.identity);
             var fruit = obj.GetComponent<Fruits>();
             fruit.OnItemCollected = OnItemCollected;
         }
-        else if (chara == '6')
+        else if (itemId == '6')
         {
             Instantiate(goalPrefab, pos, Quaternion.identity);
         }

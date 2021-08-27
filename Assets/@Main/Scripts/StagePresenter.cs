@@ -38,8 +38,8 @@ public class StagePresenter: MonoBehaviour
             for (int j = 0; j < 32; j++)
             {
                 var pos = new Vector3(j - 16 + 0.5f, lines.Length - i - 14, 0);
-                var chara = line[j];
-                view.SetItem(chara, pos);
+                var itemId = line[j];
+                view.SetItem(itemId, pos);
             }
         }
     }
