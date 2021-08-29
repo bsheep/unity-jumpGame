@@ -67,13 +67,22 @@ public class StagePresenter: MonoBehaviour
             var endPos = pos;
             endPos.y = endPosY;
             view.mainCamera.transform.localPosition = Vector3.Lerp(pos, endPos, 0.01f);
+
+            // スペース押下でデータを保存してタイトルへ
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                SaveData();
+                SceneManager.LoadScene("Title");
+            }
         }
         else if (isGameOver)
         {
             if(canRetry)
             {
+                // スペース押下でデータを保存してタイトルへ
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
+                    SaveData();
                     SceneManager.LoadScene("Title");
                 }
             }
@@ -95,6 +104,20 @@ public class StagePresenter: MonoBehaviour
                 audioSource.PlayOneShot(fallClip);
                 Invoke("HitEffect", 2f);
             }
+        }
+    }
+
+    void SaveData()
+    {
+        int highscore = 0;
+        if (PlayerPrefs.HasKey("Highscore"))
+        {
+            highscore = PlayerPrefs.GetInt("Highscore");
+        }
+        if (model.Score() > highscore)
+        {
+            PlayerPrefs.SetInt("Highscore", model.Score());
+            PlayerPrefs.Save();
         }
     }
 

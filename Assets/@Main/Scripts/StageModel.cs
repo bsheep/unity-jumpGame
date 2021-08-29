@@ -16,6 +16,11 @@ public class StageModel
         _score = new ReactiveProperty<int>(0);
     }
 
+    public int Score()
+    {
+        return _score.Value;
+    }
+
     public void ScoreCount(int score)
     {
         _score.Value += score;

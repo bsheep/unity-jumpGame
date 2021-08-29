@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using TMPro;
 
 public class TitleView : MonoBehaviour
 {
     public GameObject cursor;
     Vector3 cursorPos;
+    public TextMeshProUGUI scoreText;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +19,11 @@ public class TitleView : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+    public void SetScore(int score)
+    {
+        scoreText.text = score.ToString();
     }
 
     public void setCursorToStart()

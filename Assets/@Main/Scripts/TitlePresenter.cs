@@ -14,6 +14,13 @@ public class TitlePresenter : MonoBehaviour
     {
         isCursorToStart = true;
         view.setCursorToStart();
+
+        int highscore = 0;
+        if (PlayerPrefs.HasKey("Highscore"))
+        {
+            highscore = PlayerPrefs.GetInt("Highscore");
+        }
+        view.SetScore(highscore);
     }
 
     // Update is called once per frame
